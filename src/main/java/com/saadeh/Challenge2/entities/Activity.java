@@ -27,6 +27,14 @@ public class Activity {
                     inverseJoinColumns = @JoinColumn(name = "participant_id"))
     private Set<Participant> participants = new HashSet<>();
 
+
+    @OneToMany(mappedBy = "activity")
+    private Set<Block> blocks;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Activity() {
     }
 
@@ -71,6 +79,18 @@ public class Activity {
 
     public Set<Participant> getParticipants() {
         return participants;
+    }
+
+    public Set<Block> getBlocks() {
+        return blocks;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

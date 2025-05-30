@@ -18,6 +18,10 @@ public class Block {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dateEnd;
 
+    @ManyToOne
+    @JoinColumn(name = "activity_id")
+    private Activity activity;
+
     public Block() {
     }
 
